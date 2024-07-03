@@ -18,19 +18,19 @@ PORTD = 0b00000001;
 
     void F_dot ()
     {
-        if (dot == 0)           // Dot
+        if (dot < 1)           // Dot
         {
             PORTD = 0b00000001;
         }
         else if (dot == 1)
         {
-                PORTD = 0b00000000;
+            PORTD = 0b00000000;
         }
-        else (dot > 1)
+        else
         {
             dot = 0;
         }
-        return 0;
+        return;
     }          
 //-------------------------
     void F_dash ()
@@ -43,11 +43,11 @@ PORTD = 0b00000001;
         {
             PORTD = 0b00000000;
         }
-        else (dot > 3)
+        else
         {
             dot = 0;
         }
-        return 0;
+        return;
     }
 //-------------------------
     void F_interval_3 ()
@@ -56,11 +56,11 @@ PORTD = 0b00000001;
         {
             PORTD = 0b00000000;
         }
-        else (dot > 3)
+        else
         {
             dot = 0;
         }
-        return 0;
+        return;
     }
 //-------------------------           
     void F_interval_7 ()
@@ -69,7 +69,7 @@ PORTD = 0b00000001;
         {
             PORTD = 0b00000000;
         }
-        return 0;
+        return;
     }
 //-------------------------------------------------------------
 // Symbols set
@@ -152,5 +152,5 @@ while (message != '!')
     getchar(); // Clean buffer
 }
     USART_Transmit('Good bye!\n');
-    return 0;
+    return;
 }
