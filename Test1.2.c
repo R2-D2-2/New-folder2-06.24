@@ -2,7 +2,8 @@
 //-------------------------------------------------------------
 // Timer part 1
 
-TCNT = 0;  
+TCCR1B |= (1<<CS11)|(1<<SC10); // clkI/O/64 (From prescaler)
+TCNT1 = 0x0000;  
 
 int dot = 0;
 
@@ -77,13 +78,13 @@ void symbols (message)
 {
     message == 'a' || message == 'A';
     message == 'b' || message == 'B';
-    
+
 	switch (message)
 	{
 //-------------------------
 		case'a':
         {   
-            TCNT = 0;
+            TCNT1 = 0x0000;
             dot = 0;
 
             F_dot ();
@@ -95,7 +96,7 @@ void symbols (message)
 //-------------------------
         case'b':
         {
-            TCNT = 0;
+            TCNT1 = 0x0000;
             dot = 0;
 
             F_dot ();
@@ -107,7 +108,7 @@ void symbols (message)
 //-------------------------
 		case'_': 
         {
-            TCNT = 0;
+            TCNT1 = 0x0000;
             dot = 0;
             
             F_interval_7 ();
@@ -137,10 +138,9 @@ int main (void)
 
 while (message != '!')
 {
-    if (TCNT == 255)
+    if (TCNT1 = 0xFFFF)
     {
         dot++;
-        TCNT = 0;
     }
     if (dot > 7)
     {
