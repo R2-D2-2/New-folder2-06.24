@@ -34,5 +34,6 @@ while (1)
     if ()
     {
         SPI_Transmit ();
+        _delay_ms (1000);
     }
 }
