@@ -43,4 +43,5 @@ while (1)
     }
 }
 
-https://disk.yandex.ru/i/qCxj6F1bkEJX1w//
+https://disk.yandex.ru/i/qCxj6F1bkEJX1w
+https://disk.yandex.ru/i/i8MWH-RhKC5uAw
