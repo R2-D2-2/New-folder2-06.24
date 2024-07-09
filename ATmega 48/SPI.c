@@ -38,7 +38,9 @@ while (1)
 {
     if ()
     {
-        SPI_Transmit ();
+        SPI_Transmit (SPDR);
         _delay_ms (1000);
     }
 }
+
+https://disk.yandex.ru/i/qCxj6F1bkEJX1w//
