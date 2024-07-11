@@ -7,6 +7,6 @@ void USART_Init( unsigned int speed);
 void USART_Transmit( unsigned char data );
 void USART_sendLine( unsigned char *string);
 
-unsigned char message;
+uint8_t message;
 
 #endif /* USART_H_ */
