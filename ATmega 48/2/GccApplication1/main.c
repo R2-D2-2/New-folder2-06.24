@@ -85,3 +85,6 @@ int main(void)
 		sendcharlcd('C');
 	}
 }
+
+// https://disk.yandex.ru/i/v-0YfXZRSawaPA
+// https://disk.yandex.ru/i/3z5NrBVKcguHfQ
