@@ -4,6 +4,7 @@
 // Variables
 
 char choise;
+int counter = 0;
 
 //-----------------------------
 // Body
@@ -23,9 +24,33 @@ int main (void)
         {
             if (choise == 'a' || choise == 'A')
             {
+                counter++;
                 printf ("You stand at the crossroads.\n");
                 printf ("You turned right.\n");
                 printf ("Left or right?\n");
+                
+                //printf ("counter = %d\n", counter);
+                
+                if (counter == 4)
+                {
+                    printf ("You win!\n");
+                    printf ("Continue? Click [enter].\n");
+                    getchar ();
+                    choise = getchar ();
+                    if (choise == 10)
+                    {
+                        counter = 0;
+                        printf ("You stand at the crossroads.\n");
+                        printf ("Left or right?\n");
+                        printf ("Click 'A' left  or 'D' right.\n");
+                        choise = 'd';
+                    }
+                    else
+                    {
+                        printf ("Goodbye!\n");
+                        return 0;
+                    }
+                }
             }
             else if (choise == 'd' || choise == 'D')
             {
@@ -40,7 +65,7 @@ int main (void)
             choise = getchar();
         }
         printf ("Wasted\n");
-        return 0;
+        //return 0;
     }
 
 //-----------------------------
@@ -51,9 +76,15 @@ int main (void)
         {
             if (choise == 'd' || choise == 'D')
             {
+                counter++;
                 printf ("You stand at the crossroads.\n");
                 printf ("You turned left.\n");
                 printf ("Left or right?\n");
+                if (counter == 4)
+                {
+                    printf ("You win!\n");
+                    return 0;
+                }
             }
             else if (choise == 'a' || choise == 'A')
             {
