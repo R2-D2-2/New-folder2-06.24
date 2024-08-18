@@ -4,7 +4,7 @@
 // Variables
 
 char choise;
-int counter = 0;
+int counter = 1;
 
 //-----------------------------
 // Body
@@ -13,37 +13,31 @@ int main (void)
 {
     printf ("You stand at the crossroads.\n");
     printf ("Left or right?\n");
-    printf ("Click 'A' left  or 'D' right.\n");
+    printf ("Click [A] left  or [D] right.\n");
     choise = getchar();
 
 //-----------------------------
 
     if (choise == 'a' || choise == 'A')
     {
-        while (choise != 'd')
+        while (choise != 'c')
         {
             if (choise == 'a' || choise == 'A')
-            {
-                counter++;
-                printf ("You stand at the crossroads.\n");
-                printf ("You turned right.\n");
-                printf ("Left or right?\n");
-                
-                //printf ("counter = %d\n", counter);
-                
+            {   
                 if (counter == 4)
                 {
                     printf ("You win!\n");
-                    printf ("Continue? Click [enter].\n");
+                    printf ("Continue? Click [C].\n");
                     getchar ();
                     choise = getchar ();
-                    if (choise == 10)
+
+                    if (choise == 'c' || choise == 'C')
                     {
                         counter = 0;
                         printf ("You stand at the crossroads.\n");
                         printf ("Left or right?\n");
-                        printf ("Click 'A' left  or 'D' right.\n");
-                        choise = 'd';
+                        printf ("Click [A] left  or [D] right.\n");
+                        choise = 'c';
                     }
                     else
                     {
@@ -51,10 +45,17 @@ int main (void)
                         return 0;
                     }
                 }
+
+            counter++;
+            printf ("You stand at the crossroads.\n");
+            printf ("You turned left.\n");
+            printf ("Left or right?\n");
+
             }
-            else if (choise == 'd' || choise == 'D')
+            else if (choise != 'a' || choise != 'A')
             {
-                choise = 'd';
+                printf ("Wasted\n");
+                return 0;
             }
             else
             {
@@ -64,31 +65,49 @@ int main (void)
             getchar();
             choise = getchar();
         }
-        printf ("Wasted\n");
-        //return 0;
+            printf ("You stand at the.\n");
     }
 
 //-----------------------------
 
     if (choise == 'd' || choise == 'D')
     {
-        while (choise != 'a')
+        while (choise != 'c')
         {
             if (choise == 'd' || choise == 'D')
-            {
-                counter++;
-                printf ("You stand at the crossroads.\n");
-                printf ("You turned left.\n");
-                printf ("Left or right?\n");
+            {   
                 if (counter == 4)
                 {
                     printf ("You win!\n");
-                    return 0;
+                    printf ("Continue? Click [C].\n");
+                    getchar ();
+                    choise = getchar ();
+                    
+                    if (choise == 'c' || choise == 'C')
+                    {
+                        counter = 0;
+                        printf ("You stand at the crossroads.\n");
+                        printf ("Left or right?\n");
+                        printf ("Click [A] left  or [D] right.\n");
+                        choise = 'c';
+                    }
+                    else
+                    {
+                        printf ("Goodbye!\n");
+                        return 0;
+                    }
                 }
+
+            counter++;
+            printf ("You stand at the crossroads.\n");
+            printf ("You turned right.\n");
+            printf ("Left or right?\n");
+
             }
-            else if (choise == 'a' || choise == 'A')
+            else if (choise != 'd' || choise != 'D')
             {
-                choise = 'a';
+                printf ("Wasted\n");
+                return 0;
             }
             else
             {
@@ -98,8 +117,7 @@ int main (void)
             getchar();
             choise = getchar();
         }
-        printf ("Wasted\n");
-        return 0;
+    
     }
 
 }
