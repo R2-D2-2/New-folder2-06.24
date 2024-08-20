@@ -3,7 +3,7 @@
 //-----------------------------
 // Variables
 
-char choise;
+char choise_1;
 char choise_2;
 int counter = 0;
 
@@ -23,15 +23,15 @@ int main (void)
         printf ("You stand at the crossroads.\n");
         printf ("Left or right?\n");
         printf ("Click [A] left  or [D] right.\n");
-        choise = getchar();
+        choise_1 = getchar();
 
     //-----------------------------
 
-        if (choise == 'a' || choise == 'A')
+        if (choise_1 == 'a' || choise_1 == 'A')
         {
             while (choise_2 != 'c')
             {
-                if (choise == 'a' || choise == 'A')
+                if (choise_1 == 'a' || choise_1 == 'A')
                 {   
                     counter++;
 
@@ -47,9 +47,9 @@ int main (void)
                         printf ("You win!\n");
                         printf ("Continue? Click [C].\n");
                         getchar ();
-                        choise = getchar ();
+                        choise_1 = getchar ();
 
-                        if (choise == 'c' || choise == 'C')
+                        if (choise_1 == 'c' || choise_1 == 'C')
                         {
                             counter = 0;
                             choise_2 = 'c';
@@ -62,7 +62,7 @@ int main (void)
                     }
 
                 }
-                else if (choise != 'a' || choise != 'A')
+                else if (choise_1 != 'a' || choise_1 != 'A')
                 {
                     printf ("Wasted\n");
                     return 0;
@@ -75,31 +75,36 @@ int main (void)
                 if (counter != 0)
                 {
                     getchar();
-                    choise = getchar();
+                    choise_1 = getchar();
                 }
             }
-                printf ("You.\n");
         }
-
-    //-----------------------------
-
-        if (choise == 'd' || choise == 'D')
+        else if (choise_1 == 'd' || choise_1 == 'D')
         {
-            while (choise != 'c')
+            while (choise_1 != 'c')
             {
-                if (choise == 'd' || choise == 'D')
+                if (choise_1 == 'd' || choise_1 == 'D')
                 {   
+                    counter++;
+
+                    if (counter < 4)
+                    {
+                        printf ("You stand at the crossroads.\n");
+                        printf ("You turned right.\n");
+                        printf ("Left or right?\n");
+                    }
+
                     if (counter == 4)
                     {
                         printf ("You win!\n");
                         printf ("Continue? Click [C].\n");
                         getchar ();
-                        choise = getchar ();
+                        choise_1 = getchar ();
                         
-                        if (choise == 'c' || choise == 'C')
+                        if (choise_1 == 'c' || choise_1 == 'C')
                         {
                             counter = 0;
-                            choise = 'c';
+                            choise_2 = 'c';
                         }
                         else
                         {
@@ -108,13 +113,8 @@ int main (void)
                         }
                     }
 
-                counter++;
-                printf ("You stand at the crossroads.\n");
-                printf ("You turned right.\n");
-                printf ("Left or right?\n");
-
                 }
-                else if (choise != 'd' || choise != 'D')
+                else if (choise_1 != 'd' || choise_1 != 'D')
                 {
                     printf ("Wasted\n");
                     return 0;
@@ -123,11 +123,19 @@ int main (void)
                 {
                     printf ("You stand at the crossroads.\n");
                 }
-
-                getchar();
-                choise = getchar();
+                
+                if (counter != 0)
+                {
+                    getchar();
+                    choise_1 = getchar();
+                }
             }
         
+        }
+        else
+        {
+            printf ("Wasted1\n");
+            return 0;
         }
     }
 }
