@@ -15,6 +15,11 @@ int main (void)
 
     scanf("%7[^\n]", nickname); // '', \n, \t
     //scanf("%7s", nickname); // '', \n, \t
+
+    /*
+    while((c = getchar()) != '\n' && c != EOF) // Clear buffer
+    ;
+    */
     
     printf ("Hi, %s\n", nickname);
 
